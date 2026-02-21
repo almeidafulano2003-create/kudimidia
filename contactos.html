@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos</title>
+
+    <style>
+         /*CSS do Cabeçalo*/
+.site-header {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ff7a00;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff7a00;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Botão hambúrguer (oculto em desktop) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    color: #333;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* escondido por padrão */
+    margin-top: 15px;
+    gap: 15px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}   
+
+/*Botao padrao*/
+        .btn{
+ 
+                background-color: #ff7a00;      /* laranja vibrante */
+                color: #fff;                    /* texto branco */
+                font-weight: bold;              /* negrito */
+                border: 2px solid #e56b00;      /* contorno sutil */
+                border-radius: 8px;             /* bordas arredondadas */
+                padding: 12px 20px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+/* Efeito hover */
+button:hover,
+.btn:hover {
+  background-color: #e56b00;
+  border-color: #cc5c00;
+}
+
+/* Responsividade opcional (em telas menores, botão ocupa largura total) */
+@media (max-width: 500px) {
+  button,
+  .btn {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
+
+/*Estilos de Letras*/
+html {
+  font-size: 16px; /* base */
+}
+
+h1 {
+  font-size: 2.5rem;  /* 40px */
+}
+
+h2 {
+  font-size: 2rem;    /* 32px */
+}
+
+h3 {
+  font-size: 1.75rem; /* 28px */
+}
+
+h4 {
+  font-size: 1.5rem;  /* 24px */
+}
+
+h5 {
+  font-size: 1.25rem; /* 20px */
+}
+
+h6 {
+  font-size: 1rem;    /* 16px */
+}
+
+p, li, a, span {
+  font-size: 1rem;    /* 16px padrão */
+  line-height: 1.6;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  h1 { font-size: 3rem; }   /* 48px */
+  h2 { font-size: 2.5rem; } /* 40px */
+  h3 { font-size: 2rem; }   /* 32px */
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 3.5rem; }  /* 56px */
+  h2 { font-size: 3rem; }    /* 48px */
+  h3 { font-size: 2.25rem; } /* 36px */
+}
+
+
+.contacto {
+    background: linear-gradient(135deg, #f4f6f9, #ffffff);
+    padding: 80px 20px;
+}
+
+.contacto-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contacto-header h1 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.contacto-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/* FORMULÁRIO */
+
+.formulario {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    border-color: #ff6b00;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,107,0,0.1);
+}
+
+.btn-contacto {
+    width: 100%;
+    padding: 15px;
+    background: #ff6b00;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-contacto:hover {
+    background: #e55d00;
+    transform: scale(1.03);
+}
+
+/* INFO CONTACTO */
+
+.info-contacto h2 {
+    margin-bottom: 15px;
+}
+
+.rede-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s;
+}
+
+.rede-item img {
+    width: 25px;
+}
+
+.rede-item:hover {
+    color: #ff6b00;
+    transform: translateX(5px);
+}
+
+.contactos-directos a {
+    color: #ff6b00;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contactos-directos a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+    .contacto-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}
+
+/*Footer*/ 
+.site-footer {
+  background-color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-logo img {
+  width: 40px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.footer-logo {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  color: #4b4949;
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.footer-social img {
+  width: 16px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.footer-social a:hover {
+  color: #ff7a00;
+}
+
+/* Responsivo */
+@media (max-width: 600px) 
+{
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-social a {
+    margin: 0;
+  }
+}
+    </style>
+</head>
+<body style="background-image: url(img/fundo.jpg); background-size: cover; background-position: center; background-attachment: fixed;">
+      <header class="site-header" style="background-color: white;">
+        <div class="nav-container">
+            <a href="kudi.html" class="logo"><img style="width: 15%;" src="img/logotipo sem fundo.png" alt="logotipo"></a>
+            
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+                      
+            <nav class="nav-links">
+                <a href="kudi.html">Pagina Inicial</a>
+                <a href="sobre.html">Sobre Nós</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="contactos.html">Contacte-nos</a>
+            </nav>    
+        </div>
+    </header>
+    <section class="contacto">
+    <div class="container">
+
+        <div class="contacto-header">
+            <h1>Contacte-nos</h1>
+            <p>Estamos prontos para ouvir você. Envie-nos uma mensagem e retornaremos o mais breve possível.</p>
+        </div>
+
+        <div class="contacto-conteudo">
+
+            <!-- FORMULÁRIO -->
+            <div class="formulario">
+                <form action="" method="post">
+                    
+                    <div class="form-row">
+                        <input type="text" name="nome" placeholder="Primeiro nome" required>
+                        <input type="text" name="sobrenome" placeholder="Sobrenome" required>
+                    </div>
+
+                    <input type="email" name="email" placeholder="Endereço de e-mail" required>
+                    <input type="tel" name="telefone" placeholder="Número de telefone" required>
+
+                    <textarea name="mensagem" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+
+                    <button type="submit" class="btn-contacto">Enviar Mensagem</button>
+                </form>
+            </div>
+
+            <!-- INFORMAÇÕES -->
+            <div class="info-contacto">
+
+                <div class="redes">
+                    <h2>Nossas Redes Sociais</h2>
+
+                    <a href="https://facebook.com" target="_blank" class="rede-item">
+                        <img src="img/redes sociais/facebook_3955011.png" alt="Facebook">
+                        Facebook
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" class="rede-item">
+                        <img src="img/redes sociais/instagram_1384063.png" alt="Instagram">
+                        Instagram
+                    </a>
+
+                    <a href="https://tiktok.com" target="_blank" class="rede-item">
+                        <img src="img/redes sociais/tik-tok_4782345.png" alt="TikTok">
+                        TikTok
+                    </a>
+
+                    <a href="https://linkedin.com" target="_blank" class="rede-item">
+                        <img src="img/redes sociais/linkedin_4494497.png" alt="LinkedIn">
+                        LinkedIn
+                    </a>
+                </div>
+
+                <div class="contactos-directos">
+                    <h2>Nossos Contactos Directos</h2>
+
+                    <p>Email: <a href="mailto:geral@empresa.com">geral@empresa.com</a></p>
+                    <p>Telefone: <a href="tel:+244999999999">+244 999 999 999</a></p>
+                    <p>
+                        <a href="https://wa.me/244999999999" target="_blank">
+                            Fale Connosco pelo WhatsApp
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="site-footer">
+  <div class="footer-container">
+    <p class="footer-logo">
+      <img src="img/logotipo sem fundo.png" alt="logotipo"> &copy; 2025 Kudi Mídia - Todos os direitos reservados.
+    </p>
+
+    <p class="footer-social">
+      <a href="https://facebook.com" target="_blank">
+        <img src="img/redes sociais/facebook_3955011.png" alt=""> Facebook
+      </a> |
+      <a href="https://instagram.com" target="_blank">
+        <img src="img/redes sociais/instagram_1384063.png" alt=""> Instagram
+      </a> |
+      <a href="https://tiktok.com" target="_blank">
+        <img src="img/redes sociais/tik-tok_4782345.png" alt=""> TikTok
+      </a> |
+      <a href="https://linkedin.com" target="_blank">
+        <img src="img/redes sociais/linkedin_4494497.png" alt=""> LinkedIn
+      </a>
+    </p>
+  </div>
+</footer>
+     <script>
+                const toggleBtn = document.querySelector('.menu-toggle');
+                const navLinks = document.querySelector('.nav-links');
+
+                toggleBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('show');
+                });
+    </script>
+</body>
+</html>

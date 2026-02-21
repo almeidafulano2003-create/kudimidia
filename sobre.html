@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós</title>
+
+    <style>
+
+ /*CSS do Cabeçalo*/
+.site-header {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ff7a00;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff7a00;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Botão hambúrguer (oculto em desktop) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    color: #333;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* escondido por padrão */
+    margin-top: 15px;
+    gap: 15px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}   
+
+/*Botao padrao*/
+
+
+/* Responsividade opcional (em telas menores, botão ocupa largura total) */
+@media (max-width: 500px) {
+  button,
+  .btn {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
+
+/*Estilos de Letras*/
+html {
+  font-size: 16px; /* base */
+}
+
+h1 {
+  font-size: 2.5rem;  /* 40px */
+}
+
+h2 {
+  font-size: 2rem;    /* 32px */
+}
+
+h3 {
+  font-size: 1.75rem; /* 28px */
+}
+
+h4 {
+  font-size: 1.5rem;  /* 24px */
+}
+
+h5 {
+  font-size: 1.25rem; /* 20px */
+}
+
+h6 {
+  font-size: 1rem;    /* 16px */
+}
+
+p, li, a, span {
+  font-size: 1rem;    /* 16px padrão */
+  line-height: 1.6;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  h1 { font-size: 3rem; }   /* 48px */
+  h2 { font-size: 2.5rem; } /* 40px */
+  h3 { font-size: 2rem; }   /* 32px */
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 3.5rem; }  /* 56px */
+  h2 { font-size: 3rem; }    /* 48px */
+  h3 { font-size: 2.25rem; } /* 36px */
+}
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ========================= */
+/* O QUE FAZEMOS */
+/* ========================= */
+
+.servicos-sobre {
+    background: linear-gradient(135deg, #ffffff, #f1f3f8);
+    text-align: center;
+}
+
+.servicos-sobre h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.servicos-sobre h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: #ff6b00;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.lista-servicos {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.lista-servicos li {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.lista-servicos li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* ========================= */
+/* EQUIPA */
+/* ========================= */
+
+.equipa {
+    background: #ffffff;
+}
+
+.equipa h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.equipa h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: #ff6b00;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.membros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.membro {
+    background: #f9fafc;
+    padding: 40px 25px;
+    border-radius: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.membro:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    border-color: #ff6b00;
+}
+
+.membro img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid #ff6b00;
+}
+
+.membro h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.membro h4 {
+    font-size: 15px;
+    color: #ff6b00;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.membro p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* ========================= */
+/* CTA */
+/* ========================= */
+
+.cta {
+    background: linear-gradient(135deg, #1e1e2f, #111);
+    text-align: center;
+    color: white;
+    padding: 70px 20px;
+}
+
+.cta p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #ff6b00; /* BOTÃO LARANJA */
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255,107,0,0.4);
+}
+
+.btn:hover {
+    background: #e55d00;
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(255,107,0,0.5);
+}
+
+/* ========================= */
+/* RESPONSIVIDADE */
+/* ========================= */
+
+@media (max-width: 768px) {
+    .servicos-sobre h2,
+    .equipa h2 {
+        font-size: 26px;
+    }
+
+    .cta p {
+        font-size: 18px;
+    }
+
+    .lista-servicos {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+/*Footer*/ 
+.site-footer {
+  background-color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-logo img {
+  width: 40px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.footer-logo {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  color: #4b4949;
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.footer-social img {
+  width: 16px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.footer-social a:hover {
+  color: #ff7a00;
+}
+
+/* Responsivo */
+@media (max-width: 600px) 
+{
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-social a {
+    margin: 0;
+  }
+}
+    </style>
+</head>
+<body style="background-image: url(img/fundo.jpg); background-size: cover; background-position: center; background-attachment: fixed;">
+   <header class="site-header" style="background-color: white;">
+        <div class="nav-container">
+            <a href="kudi.html" class="logo"><img style="width: 15%;" src="img/logotipo sem fundo.png" alt="logotipo"></a>
+            
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+                      
+            <nav class="nav-links">
+                <a href="kudi.html">Pagina Inicial</a>
+                <a href="sobre.html">Sobre Nós</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="contactos.html">Contacte-nos</a>
+            </nav>    
+        </div>
+    </header>
+
+<section class="sobre">
+    <div class="container">
+        <h1>Sobre Nós</h1>
+        <p>
+            A <strong>Kudi Mídia</strong> é uma empresa de Marketing Digital dedicada a ajudar negócios a crescerem 
+            através de estratégias inovadoras, aumentando a visibilidade e atraindo mais clientes.
+        </p>
+
+        <div class="missao-visao-valores">
+            <div>
+                <h2>Nossa Missão</h2>
+                <p>Levar soluções digitais criativas e eficazes para aproximar empresas e clientes.</p>
+            </div>
+
+            <div>
+                <h2>Nossa Visão</h2>
+                <p>Ser referência em Marketing Digital em Angola e expandir internacionalmente até 2030.</p>
+            </div>
+
+            <div>
+                <h2>Nossos Valores</h2>
+                <ul>
+                    <li>Inovação constante</li>
+                    <li>Ética e transparência</li>
+                    <li>Compromisso com resultados</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="servicos-sobre">
+    <div class="container">
+        <h2>O que fazemos</h2>
+        <ul class="lista-servicos">
+            <li>Gestão de redes sociais</li>
+            <li>Criação de websites profissionais</li>
+            <li>Campanhas de tráfego pago</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="equipa">
+    <div class="container">
+        <h2>Conheça Nossa Equipa</h2>
+
+        <div class="membros">
+
+            <div class="membro">
+                <img src="img/almeida.jpeg" alt="Almeida Fulano">
+                <h3>Almeida Fulano</h3>
+                <h4>Sócio e Director de T.I</h4>
+                <p>Responsável pela Direção do Departamento de T.I</p>
+            </div>
+
+            <div class="membro">
+                <img src="img/almeida.jpeg" alt="Almeida Fulano">
+                <h3>Almeida Fulano</h3>
+                <h4>Sócio e Director de T.I</h4>
+                <p>Responsável pela Direção do Departamento de T.I</p>
+            </div>
+
+            <div class="membro">
+                <img src="img/almeida.jpeg" alt="Almeida Fulano">
+                <h3>Almeida Fulano</h3>
+                <h4>Sócio e Director de T.I</h4>
+                <p>Responsável pela Direção do Departamento de T.I</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="cta">
+    <div class="container">
+        <p><strong>Kudi Mídia</strong> — Junte-se aos melhores</p>
+        <a class="btn" href="#" target="_blank">Solicitar Serviços</a>
+    </div>
+</section>
+<footer class="site-footer">
+  <div class="footer-container">
+    <p class="footer-logo">
+      <img src="img/logotipo sem fundo.png" alt="logotipo"> &copy; 2025 Kudi Mídia - Todos os direitos reservados.
+    </p>
+
+    <p class="footer-social">
+      <a href="https://facebook.com" target="_blank">
+        <img src="img/redes sociais/facebook_3955011.png" alt=""> Facebook
+      </a> |
+      <a href="https://instagram.com" target="_blank">
+        <img src="img/redes sociais/instagram_1384063.png" alt=""> Instagram
+      </a> |
+      <a href="https://tiktok.com" target="_blank">
+        <img src="img/redes sociais/tik-tok_4782345.png" alt=""> TikTok
+      </a> |
+      <a href="https://linkedin.com" target="_blank">
+        <img src="img/redes sociais/linkedin_4494497.png" alt=""> LinkedIn
+      </a>
+    </p>
+  </div>
+</footer>
+
+     <script>
+                const toggleBtn = document.querySelector('.menu-toggle');
+                const navLinks = document.querySelector('.nav-links');
+
+                toggleBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('show');
+                });
+    </script>
+</body>
+</html>
